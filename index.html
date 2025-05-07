@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Pizza Template</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#">HOME</a></li>
+        <li class="nav-item"><a class="nav-link" href="#menu">MENU</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">ABOUT</a></li>
+        <li class="nav-item"><a class="nav-link" href="#myMap">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Header -->
+  <header class="bgimg d-flex align-items-center justify-content-center text-center text-white position-relative" id="home" style="height: 800px; background-image: url('images/pizaaa.webp'); background-size: cover; filter: grayscale(80%);">
+    <div>
+      <h1 class="d-none d-sm-block display-1">thin<br>CRUST PIZZA</h1>
+      <h1 class="d-block d-sm-none display-4">thin<br>CRUST PIZZA</h1>
+      <a href="#menu" class="btn btn-lg btn-dark mt-3">Let see the menu</a>
+    </div>
+    <div class="position-absolute bottom-0 start-0 m-3">
+      <span class="badge bg-secondary fs-4">Open from 10am to 12pm</span>
+    </div>
+  </header>
+
+  <!-- Menu -->
+  <section class="container-fluid bg-dark text-white py-5" id="menu">
+    <div class="container">
+      <h1 class="text-center display-1 mb-5">THE MENU</h1>
+      <div class="nav nav-pills justify-content-center mb-4" role="tablist">
+        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#Pizza">Pizza</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#Pasta">Salads</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#Starter">Starter</button>
+      </div>
+      <div class="tab-content text-dark bg-white p-4 rounded">
+        <div class="tab-pane fade show active" id="Pizza">
+          <h1><b>Margherita</b> <span class="badge bg-dark float-end">$12.50</span></h1>
+          <p class="text-muted">Fresh tomatoes, fresh mozzarella, fresh basil</p>
+          <button class="btn btn-sm btn-outline-dark add-to-cart" data-name="Margherita" data-price="12.50">Add to Cart</button>
+          <hr>
+          <h1><b>Formaggio</b> <span class="badge bg-dark float-end">$15.50</span></h1>
+          <p class="text-muted">Four cheeses (mozzarella, parmesan, pecorino, jarlsberg)</p>
+          <button class="btn btn-sm btn-outline-dark add-to-cart" data-name="Margherita" data-price="12.50">Add to Cart</button>
+          <hr>
+          <h1><b>Chicken</b> <span class="badge bg-dark float-end">$17.00</span></h1>
+          <p class="text-muted">Fresh tomatoes, mozzarella, chicken, onions</p>
+          <button class="btn btn-sm btn-outline-dark add-to-cart" data-name="Margherita" data-price="12.50">Add to Cart</button>
+          <hr>
+          <h1><b>Pineapple'o'clock</b> <span class="badge bg-dark float-end">$16.50</span></h1>
+          <p class="text-muted">Fresh tomatoes, mozzarella, fresh pineapple, bacon, fresh basil</p>
+          <button class="btn btn-sm btn-outline-dark add-to-cart" data-name="Margherita" data-price="12.50">Add to Cart</button>
+          <hr>
+          <h1><b>Meat Town</b> <span class="badge bg-danger">Hot!</span> <span class="badge bg-dark float-end">$20.00</span></h1>
+          <p class="text-muted">Fresh tomatoes, mozzarella, hot pepporoni, hot sausage, beef, chicken</p>
+          <button class="btn btn-sm btn-outline-dark add-to-cart" data-name="Margherita" data-price="12.50">Add to Cart</button>
+          <hr>
+          <h1><b>Parma</b> <span class="badge bg-secondary">New</span> <span class="badge bg-dark float-end">$21.50</span></h1>
+          <p class="text-muted">Fresh tomatoes, mozzarella, parma, bacon, fresh arugula</p>
+          <button class="btn btn-sm btn-outline-dark add-to-cart" data-name="Margherita" data-price="12.50">Add to Cart</button>
+        </div>
+        <div class="tab-pane fade" id="Pasta">
+          <h1><b>Lasagna</b> <span class="badge bg-secondary">Popular</span> <span class="badge bg-dark float-end">$13.50</span></h1>
+          <p class="text-muted">Special sauce, mozzarella, parmesan, ground beef</p>
+          <button class="btn btn-sm btn-outline-dark add-to-cart" data-name="Margherita" data-price="12.50">Add to Cart</button>
+          <hr>
+          <h1><b>Ravioli</b> <span class="badge bg-dark float-end">$14.50</span></h1>
+          <p class="text-muted">Ravioli filled with cheese</p>
+          <button class="btn btn-sm btn-outline-dark add-to-cart" data-name="Margherita" data-price="12.50">Add to Cart</button>
+          <hr>
+          <h1><b>Spaghetti Classica</b> <span class="badge bg-dark float-end">$11.00</span></h1>
+          <p class="text-muted">Fresh tomatoes, onions, ground beef</p>
+          <button class="btn btn-sm btn-outline-dark add-to-cart" data-name="Margherita" data-price="12.50">Add to Cart</button>
+          <hr>
+          <h1><b>Seafood pasta</b> <span class="badge bg-dark float-end">$25.50</span></h1>
+          <p class="text-muted">Salmon, shrimp, lobster, garlic</p>
+          <button class="btn btn-sm btn-outline-dark add-to-cart" data-name="Margherita" data-price="12.50">Add to Cart</button>
+        </div>
+        <div class="tab-pane fade" id="Starter">
+          <h1><b>Today's Soup</b> <span class="badge bg-secondary">Seasonal</span> <span class="badge bg-dark float-end">$5.50</span></h1>
+          <p class="text-muted">Ask the waiter</p>
+          <button class="btn btn-sm btn-outline-dark add-to-cart" data-name="Margherita" data-price="12.50">Add to Cart</button>
+          <hr>
+          <h1><b>Bruschetta</b> <span class="badge bg-dark float-end">$8.50</span></h1>
+          <p class="text-muted">Bread with pesto, tomatoes, onion, garlic</p>
+          <button class="btn btn-sm btn-outline-dark add-to-cart" data-name="Margherita" data-price="12.50">Add to Cart</button>
+          <hr>
+          <h1><b>Garlic bread</b> <span class="badge bg-dark float-end">$9.50</span></h1>
+          <p class="text-muted">Grilled ciabatta, garlic butter, onions</p>
+          <button class="btn btn-sm btn-outline-dark add-to-cart" data-name="Margherita" data-price="12.50">Add to Cart</button>
+          <hr>
+          <h1><b>Tomozzarella</b> <span class="badge bg-dark float-end">$10.50</span></h1>
+          <p class="text-muted">Tomatoes and mozzarella</p>
+          <button class="btn btn-sm btn-outline-dark add-to-cart" data-name="Margherita" data-price="12.50">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+ <!-- <section class="container my-5" id="cart">
+    <h2 class="text-center mb-4">Your Cart</h2>
+    <ul class="list-group mb-3" id="cart-items"></ul>
+    <h4>Total: $<span id="cart-total">0.00</span></h4>
+  </section> -->
+  
+  <!-- About Section -->
+    <section class="container my-5" id="about">
+      <h1 class="text-center display-4 mb-4">ABOUT</h1>
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <img src="images/thiet-ke-nha-hang-pizza-12.png" alt="Pizza chef" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6">
+          <h3>We make the best pizza in town</h3>
+          <p>Our pizza is crafted using only the freshest ingredients and traditional recipes passed down through generations. Each slice tells a story of flavor, texture, and passion.</p>
+          <p><strong>Opening hours:</strong> Everyday from 10am to 12pm</p>
+          <p><strong>Address:</strong> 123 Pizza Street, Flavor Town</p>
+          <p class="text-end">
+          <p><strong>The Chef?</strong> Mr. Italiano himself</p>
+            <img src="images/chef.jpg" style="width:150px" class="rounded float-end ms-2" alt="Chef">
+          </p>
+          <p>We are proud of our interiors.</p>
+        </div>
+  
+    <!-- Contact / Map -->
+    <section class="container-fluid bg-light py-5" id="myMap">
+      <div class="container">
+        <h1 class="text-center display-4 mb-4">CONTACT</h1>
+        <div class="row">
+          <div class="col-md-6">
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Your name">
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Your email">
+              </div>
+              <div class="mb-3 reservation-people">
+                <label for="people" class="form-label">Number of attendees</label>
+                <input type="number" class="form-control form-control-lg" placeholder="How many people" required name="People" id="people">
+            </div>
+            <div class="mb-3 reservation-datetime">
+                <label for="datetime" class="form-label">Date and time</label>
+                <input type="datetime-local" class="form-control form-control-lg" placeholder="Date and time" required name="date" id="datetime" value="2020-11-16T20:00">
+            </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Message:</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="Your message"></textarea>
+              </div>
+              <button type="submit" class="btn btn-dark">Send</button>
+            </form>
+          </div>
+          <div class="col-md-6 mt-4 mt-md-0">
+            <div class="ratio ratio-16x9">
+              <iframe src="https://maps.google.com/maps?q=pizza&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+      <p class="mb-0">© 2025 Thin Crust Pizza. All rights reserved.</p>
+    </footer>
+  
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+  </html>
+  
