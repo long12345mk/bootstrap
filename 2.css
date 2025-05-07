@@ -1,0 +1,69 @@
+body, html {
+    height: 100%;
+    font-family: "Amatic SC", sans-serif;
+  }
+  
+  .bgimg {
+    background-image: url('/w3images/pizza.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 90vh;
+    position: relative;
+  }
+  
+  header h1, header h2 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  .tab-content h1 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .tab-content p {
+    color: #555;
+  }
+  
+  .tab-content hr {
+    border-top: 1px solid #ccc;
+  }
+  
+  .nav-pills .nav-link.active {
+    background-color: #dc3545;
+  }
+  
+  img.w3-circle {
+    border-radius: 50%;
+  }
+  
+  /* About Section */
+#about img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#about h3 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+/* Contact Form */
+#myMap input,
+#myMap textarea {
+  border-radius: 0;
+  border: 1px solid #ccc;
+}
+
+#myMap input:focus,
+#myMap textarea:focus {
+  border-color: #000;
+  box-shadow: none;
+}
+
+/* Footer */
+footer {
+  background-color: #111;
+  font-size: 1rem;
+}
