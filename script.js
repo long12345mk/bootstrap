@@ -9,7 +9,7 @@ document.querySelectorAll('a.nav-link').forEach(link => {
   });
 });
 
-// Form submission at CONTACT section (optional)
+// Form submission at CONTACT section
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.querySelector('#myMap form');
   if (form) {
@@ -28,6 +28,24 @@ const cartTotal = document.getElementById('cart-total');
 const cartCount = document.getElementById('cart-count');
 const clearCartBtn = document.getElementById('clear-cart');
 
+// Hiển thị thông báo nhỏ (toast)
+function showToast(message, type = 'success') {
+  const toastContainer = document.getElementById('toast-container');
+  const toast = document.createElement('div');
+  toast.className = `toast align-items-center text-bg-${type} border-0 show`;
+  toast.setAttribute('role', 'alert');
+  toast.setAttribute('aria-live', 'assertive');
+  toast.setAttribute('aria-atomic', 'true');
+  toast.innerHTML = `
+    <div class="d-flex">
+      <div class="toast-body">${message}</div>
+      <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  `;
+  toastContainer.appendChild(toast);
+  setTimeout(() => toast.remove(), 3000);
+}
+
 // Thêm sản phẩm vào giỏ
 document.querySelectorAll('.add-to-cart').forEach(button => {
   button.addEventListener('click', () => {
@@ -42,6 +60,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
     }
 
     renderCart();
+    showToast(`🛒 "${name}" added to cart!`);
   });
 });
 
@@ -62,9 +81,7 @@ function renderCart() {
         <button class="btn btn-sm btn-outline-danger remove-item" data-index="${index}">×</button>
       </div>
     `;
-
     cartItems.appendChild(li);
-
     total += item.price * item.quantity;
     itemCount += item.quantity;
   });
@@ -91,5 +108,22 @@ if (clearCartBtn) {
   clearCartBtn.addEventListener('click', () => {
     cart.length = 0;
     renderCart();
+    showToast('🧹 Cart cleared.', 'warning');
+  });
+}
+
+// Checkout
+const checkoutBtn = document.getElementById('checkout-btn');
+if (checkoutBtn) {
+  checkoutBtn.addEventListener('click', () => {
+    if (cart.length === 0) {
+      showToast('🛒 Your cart is empty!', 'danger');
+      return;
+    }
+    if (confirm("Do you want to place the order?")) {
+      cart.length = 0;
+      renderCart();
+      showToast('✅ Your order has been placed!');
+    }
   });
 }
