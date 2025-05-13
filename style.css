@@ -35,4 +35,89 @@ body, html {
   img.w3-circle {
     border-radius: 50%;
   }
+  /* ====== CUSTOM FOOTER ====== */
+.custom-footer {
+  background-color: #343a40;
+  color: #f8f9fa;
+  font-size: 1.2rem;
+  border-top: 3px solid #dc3545;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.custom-footer p {
+  margin-bottom: 0.3rem;
+}
+
+/* ====== BACK TO TOP BUTTON ====== */
+#backToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #dc3545;
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 18px;
+  display: none;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+#backToTopBtn:hover {
+  background-color: #c82333;
+  transform: scale(1.1);
+}
+
+/* ====== TOAST NOTIFICATION ====== */
+#toastNotification {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background-color: #28a745;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  z-index: 1000;
+  display: none;
+  font-size: 16px;
+  animation: fadeOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
+
+/* ====== BUTTON HOVER EFFECT ====== */
+button:hover, .btn:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* ====== RESPONSIVE FOR SMALL DEVICES ====== */
+@media (max-width: 768px) {
+  .custom-footer {
+    font-size: 1rem;
+    padding: 1.5rem 0;
+  }
+
+  #backToTopBtn {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  #toastNotification {
+    right: 10px;
+    bottom: 80px;
+    font-size: 14px;
+  }
+}
+
   
