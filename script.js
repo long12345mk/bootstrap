@@ -1,4 +1,4 @@
-// Smooth scroll for nav links
+// Smooth scroll cho các nav-link
 document.querySelectorAll('a.nav-link').forEach(link => {
   link.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
@@ -9,7 +9,20 @@ document.querySelectorAll('a.nav-link').forEach(link => {
   });
 });
 
-// Form submission at CONTACT section
+// Hiện nút Back to Top
+const backToTopBtn = document.getElementById('backToTop');
+window.onscroll = function () {
+  if (document.documentElement.scrollTop > 300) {
+    backToTopBtn.style.display = 'block';
+  } else {
+    backToTopBtn.style.display = 'none';
+  }
+};
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Xử lý form liên hệ (tùy chọn)
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.querySelector('#myMap form');
   if (form) {
@@ -28,24 +41,6 @@ const cartTotal = document.getElementById('cart-total');
 const cartCount = document.getElementById('cart-count');
 const clearCartBtn = document.getElementById('clear-cart');
 
-// Hiển thị thông báo nhỏ (toast)
-function showToast(message, type = 'success') {
-  const toastContainer = document.getElementById('toast-container');
-  const toast = document.createElement('div');
-  toast.className = `toast align-items-center text-bg-${type} border-0 show`;
-  toast.setAttribute('role', 'alert');
-  toast.setAttribute('aria-live', 'assertive');
-  toast.setAttribute('aria-atomic', 'true');
-  toast.innerHTML = `
-    <div class="d-flex">
-      <div class="toast-body">${message}</div>
-      <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
-    </div>
-  `;
-  toastContainer.appendChild(toast);
-  setTimeout(() => toast.remove(), 3000);
-}
-
 // Thêm sản phẩm vào giỏ
 document.querySelectorAll('.add-to-cart').forEach(button => {
   button.addEventListener('click', () => {
@@ -59,8 +54,8 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
       cart.push({ name, price, quantity: 1 });
     }
 
+    showToast(`${name} has been added to your cart.`);
     renderCart();
-    showToast(`🛒 "${name}" added to cart!`);
   });
 });
 
@@ -73,7 +68,6 @@ function renderCart() {
   cart.forEach((item, index) => {
     const li = document.createElement('li');
     li.className = 'list-group-item d-flex justify-content-between align-items-center';
-
     li.innerHTML = `
       ${item.name} (x${item.quantity})
       <div>
@@ -87,8 +81,7 @@ function renderCart() {
   });
 
   cartTotal.textContent = total.toFixed(2);
-  if (cartCount) cartCount.textContent = itemCount;
-
+  cartCount.textContent = itemCount;
   attachRemoveEvents();
 }
 
@@ -97,8 +90,11 @@ function attachRemoveEvents() {
   document.querySelectorAll('.remove-item').forEach(button => {
     button.addEventListener('click', () => {
       const index = parseInt(button.getAttribute('data-index'));
-      cart.splice(index, 1);
-      renderCart();
+      const itemName = cart[index].name;
+      if (confirm(`Are you sure you want to remove "${itemName}" from your cart?`)) {
+        cart.splice(index, 1);
+        renderCart();
+      }
     });
   });
 }
@@ -106,24 +102,35 @@ function attachRemoveEvents() {
 // Xóa toàn bộ giỏ hàng
 if (clearCartBtn) {
   clearCartBtn.addEventListener('click', () => {
-    cart.length = 0;
-    renderCart();
-    showToast('🧹 Cart cleared.', 'warning');
+    if (cart.length === 0) {
+      alert("Your cart is already empty.");
+    } else if (confirm("Are you sure you want to clear the entire cart?")) {
+      cart.length = 0;
+      renderCart();
+    }
   });
 }
 
-// Checkout
-const checkoutBtn = document.getElementById('checkout-btn');
-if (checkoutBtn) {
-  checkoutBtn.addEventListener('click', () => {
-    if (cart.length === 0) {
-      showToast('🛒 Your cart is empty!', 'danger');
-      return;
-    }
-    if (confirm("Do you want to place the order?")) {
-      cart.length = 0;
-      renderCart();
-      showToast('✅ Your order has been placed!');
-    }
-  });
+function showToast(message = "Item added to cart!") {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.style.display = "block";
+  setTimeout(() => {
+    toast.style.display = "none";
+  }, 2000);
 }
+
+
+// Nút Checkout
+document.querySelector('.btn-success').addEventListener('click', () => {
+  if (cart.length === 0) {
+    alert("Your cart is empty. Add something before checking out.");
+    return;
+  }
+  const confirmed = confirm("Do you want to place this order?");
+  if (confirmed) {
+    alert("Thank you! Your order has been placed.");
+    cart.length = 0;
+    renderCart();
+  }
+});
